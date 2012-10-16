@@ -2,18 +2,13 @@
 
 {exp:stash:set name="content"}
 	
-	{exp:eeci_demo:feed_info}
-		<h1>{title}</h1>
-		<p>
-    	{publish_date}
-		</p>
-		<ul>
-			{authors}
-				<li>{name}</li>
-			{/authors}
-		</ul>
-		{content}
-	{/exp:eeci_demo:feed_info}
+	<p>
+		{exp:eeci_demo:say message="Parameters are fun!"}
+	</p>
+
+	<p>
+		{exp:eeci_demo:shout message="Parameters are fun!"}
+	</p>
 	
 
 {/exp:stash:set}
