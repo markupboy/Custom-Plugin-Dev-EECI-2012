@@ -15,8 +15,7 @@ $plugin_info = array(
 	'pi_version'	=> '1.0',
 	'pi_author'		=> 'Blake Walters',
 	'pi_author_url'	=> 'http://markupboy.com',
-	'pi_description'=> 'A demo plugin for EECI 2012',
-	'pi_usage'		=> Eeci_demo::usage()
+	'pi_description'=> 'A demo plugin for EECI 2012'
 );
 
 
@@ -28,21 +27,43 @@ class Eeci_demo {
 	{
 		$this->EE =& get_instance();
 	}
-	
-	// ----------------------------------------------------------------
-	
-	public static function usage()
-	{
-		ob_start();
-?>
 
- Your usage information should go here!
- 
-<?php
-		$buffer = ob_get_contents();
-		ob_end_clean();
-		return $buffer;
+	public function inflector() 
+	{
+		$this->EE->load->helper('inflector');
+
+		$text = $this->EE->TMPL->fetch_param('text');
+		$method = $this->EE->TMPL->fetch_param('method');
+
+		$out = $text;
+
+		switch ($method) 
+		{
+			case 'singluar':
+				$out = singular($text);
+				break;
+
+			case 'plural':
+				$out = plural($text);
+				break;
+			
+			case 'camel':
+				$out = camelize($text);
+				break;
+
+			case 'underscore':
+				$out = underscore($text);
+				break;
+
+			case 'human':
+				$out = humanize($text);
+				break;
+
+		}
+
+		return $out;
 	}
+	
 }
 
 
