@@ -2,10 +2,18 @@
 
 {exp:stash:set name="content"}
 	
-	{if "{exp:eeci_demo:is_mobile}" == "true"}
-		You're on a mobile device.
-	{if:else}
-		No mobile for you!
-	{/if}
+	{exp:eeci_demo:feed_info}
+		<h1>{title}</h1>
+		<p>
+    	{publish_date}
+		</p>
+		<ul>
+			{authors}
+				<li>{name}</li>
+			{/authors}
+		</ul>
+		{content}
+	{/exp:eeci_demo:feed_info}
+	
 
 {/exp:stash:set}
