@@ -28,40 +28,18 @@ class Eeci_demo {
 		$this->EE =& get_instance();
 	}
 
-	public function inflector() 
+	public function is_mobile() 
 	{
-		$this->EE->load->helper('inflector');
+		$this->EE->load->library('user_agent');
 
-		$text = $this->EE->TMPL->fetch_param('text');
-		$method = $this->EE->TMPL->fetch_param('method');
-
-		$out = $text;
-
-		switch ($method) 
+		if($this->EE->agent->is_mobile()) 
 		{
-			case 'singluar':
-				$out = singular($text);
-				break;
-
-			case 'plural':
-				$out = plural($text);
-				break;
-			
-			case 'camel':
-				$out = camelize($text);
-				break;
-
-			case 'underscore':
-				$out = underscore($text);
-				break;
-
-			case 'human':
-				$out = humanize($text);
-				break;
-
+			$output = "true";
+		} else {
+			$output = "false";
 		}
 
-		return $out;
+		return $output;
 	}
 	
 }
