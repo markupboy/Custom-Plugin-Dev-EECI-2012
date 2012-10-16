@@ -28,32 +28,15 @@ class Eeci_demo {
 		$this->EE =& get_instance();
 	}
 
-	public function feed_info() {
+	public function shout() {
 
 		$tagdata = $this->EE->TMPL->tagdata;
 
-		$variables = array(
-			array(
-				'title' => 'My Feed Title',
-				'publish_date' => date('F j, Y'),
-				'content' => '<p>Lorem ipsum dolor sit amet.</p>'
-			),
-			array(
-				'title' => 'Another Title',
-				'publish_date' => date('F j, Y'),
-				'content' => '<p>Sed do eiusmod tempor incididunt ut labore.</p>'
-			),
-			array(
-				'title' => 'The Last Title',
-				'publish_date' => date('F j, Y'),
-				'content' => '<p>Sunt in culpa qui officia deserunt mollit anim.</p>'
-			)
-		);
-
-		return $this->EE->TMPL->parse_variables($tagdata, $variables);
+		return "<strong>" . $tagdata . "</strong>";
 
 	}
 	
+
 }
 
 
