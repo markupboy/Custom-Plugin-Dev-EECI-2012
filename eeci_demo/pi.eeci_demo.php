@@ -15,8 +15,7 @@ $plugin_info = array(
 	'pi_version'	=> '1.0',
 	'pi_author'		=> 'Blake Walters',
 	'pi_author_url'	=> 'http://markupboy.com',
-	'pi_description'=> 'A demo plugin for EECI 2012',
-	'pi_usage' => Eeci_demo::usage()
+	'pi_description'=> 'A demo plugin for EECI 2012'
 );
 
 
@@ -26,21 +25,25 @@ class Eeci_demo {
    
 	public function __construct()
 	{
-		$this->return_data = "What's up EECI!";
+		$this->EE =& get_instance();
 	}
 
-	public function usage()
-	{
-		ob_start();
-?>
+	public function feed_info() {
 
-	Your usage information should go here!
+		$tagdata = $this->EE->TMPL->tagdata;
 
-<?php
-		$buffer = ob_get_contents();
-		ob_end_clean();
-		return $buffer;
+		$variables = array(
+			array(
+				'title' => 'My Feed Title',
+				'publish_date' => date('F j, Y'),
+				'content' => '<p>Lorem ipsum dolor sit amet.</p>'
+			)
+		);
+
+		return $this->EE->TMPL->parse_variables($tagdata, $variables);
+
 	}
+	
 
 }
 
