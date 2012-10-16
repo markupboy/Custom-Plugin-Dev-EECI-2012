@@ -1,1 +1,15 @@
-{exp:eeci_demo}
+{embed="_layouts/base"}
+
+{exp:stash:set name="content"}
+	
+
+<ul>
+	<li>{exp:eeci_demo:inflector text="dogs" method="singluar"}</li>
+	<li>{exp:eeci_demo:inflector text="cat" method="plural"}</li>
+	<li>{exp:eeci_demo:inflector text="maybe-a-url-title" method="camel"}</li>
+	<li>{exp:eeci_demo:inflector text="Combine to a single word" method="underscore"}</li>
+	<li>{exp:eeci_demo:inflector text="maybe_another_url_title" method="human"}</li>
+</ul>
+
+
+{/exp:stash:set}
