@@ -2,13 +2,14 @@
 
 {exp:stash:set name="content"}
 	
-	<p>
-		{exp:eeci_demo:say}
-	</p>
-
-	<p>
-		{exp:eeci_demo:shout}
-	</p>
+	{exp:eeci_demo:feed_info}
+		<h1>{title}</h1>
+		<p>
+    	{publish_date}
+		</p>
+		{content}
+		<br><br>
+	{/exp:eeci_demo:feed_info}
 	
 
 {/exp:stash:set}
