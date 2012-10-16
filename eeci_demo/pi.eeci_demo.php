@@ -23,23 +23,18 @@ class Eeci_demo {
 
 	public $return_data;
    
-	public function __construct()
-	{
-		$this->EE =& get_instance();
-	}
+	public function __construct() {}
 
 	public function say()
 	{
-		$message = $this->EE->TMPL->fetch_param('message');
-		return $message;
+		return "Well hello there";
 	}
 
 	public function shout()
 	{
-		$message = $this->EE->TMPL->fetch_param('message');
-		return strtoupper($message);
+		return "HOW ARE YOU DOING TODAY!!";
 	}
-	
+
 }
 
 
