@@ -28,18 +28,25 @@ class Eeci_demo {
 		$this->EE =& get_instance();
 	}
 
-	public function is_mobile() 
-	{
-		$this->EE->load->library('user_agent');
+	public function feed_info() {
 
-		if($this->EE->agent->is_mobile()) 
-		{
-			$output = "true";
-		} else {
-			$output = "false";
-		}
+		$tagdata = $this->EE->TMPL->tagdata;
 
-		return $output;
+		$variables = array(
+			array(
+				'title' => 'My Feed Title',
+				'publish_date' => date('F j, Y'),
+				'content' => '<p>Lorem ipsum dolor sit amet.</p>',
+				'authors' => array(
+					array('name' => 'Isaac Asimov'),
+					array('name' => 'William Gibson'),
+					array('name' => 'Arthur C. Clark')
+				)
+			)
+		);
+
+		return $this->EE->TMPL->parse_variables($tagdata, $variables);
+
 	}
 	
 }
