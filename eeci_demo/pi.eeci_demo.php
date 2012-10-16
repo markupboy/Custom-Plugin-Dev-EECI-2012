@@ -28,25 +28,16 @@ class Eeci_demo {
 		$this->EE =& get_instance();
 	}
 
-	public function feed_info() {
+	public function say()
+	{
+		$message = $this->EE->TMPL->fetch_param('message');
+		return $message;
+	}
 
-		$tagdata = $this->EE->TMPL->tagdata;
-
-		$variables = array(
-			array(
-				'title' => 'My Feed Title',
-				'publish_date' => date('F j, Y'),
-				'content' => '<p>Lorem ipsum dolor sit amet.</p>',
-				'authors' => array(
-					array('name' => 'Isaac Asimov'),
-					array('name' => 'William Gibson'),
-					array('name' => 'Arthur C. Clark')
-				)
-			)
-		);
-
-		return $this->EE->TMPL->parse_variables($tagdata, $variables);
-
+	public function shout()
+	{
+		$message = $this->EE->TMPL->fetch_param('message');
+		return strtoupper($message);
 	}
 	
 }
